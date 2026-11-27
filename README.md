@@ -11,8 +11,9 @@ Bu yerda sprintning birinchi kunidan (27-noyabr 2026) boshlab ish tarixi saqlana
 
 ## Tuzilma
 ```
-docs/   reja, tadqiqot, kanvas va MVP pasporti qoralamalari
-mvp/    MVP-layt (kod yoki havola)
+docs/       reja, intervyu qo'llanmasi, video ssenariysi
+hujjatlar/  kanvas, MVP pasporti, jurnal: matn -> A4 PDF (build.py)
+mvp/        MVP-layt (kod yoki havola)
 ```
 
 Intervyular jurnali bu repozitoriyda saqlanmaydi: unda suhbatdoshlarning kontaktlari bor va qoidaga ko'ra uni faqat tashkilotchilar ko'radi.
