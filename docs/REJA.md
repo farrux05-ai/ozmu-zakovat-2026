@@ -12,9 +12,10 @@ Manba: tashkilotchining saralash qoidalari va 4 ta shabloni.
 Intervyuda 2 kishi: biri so'raydi, biri so'zma-so'z yozadi.
 
 ## Hozir (vazifa kutilayotganda), 27-noyabr
-- [ ] Jamoa nomi va sardor (shaklni sardor o'z akkauntidan to'ldiradi)
-- [ ] **Alohida ish repozitoriysi** (GitHub, ochiq) yoki Google Disk papka. Birinchi commit bugun: tarix "sprintning birinchi kunidan" ko'rinishi kerak. Shu repozitoriy (ochildi, 27-noyabr)
-- [ ] 4 shablonning Google Docs nusxasi (Fayl → Nusxasini yaratish), umumiy papkada
+- [x] Jamoa nomi va sardor: "O'zMU jamoasi", sardor belgilandi (shaklni sardor o'z akkauntidan to'ldiradi)
+- [x] **Alohida ish repozitoriysi** (GitHub, ochiq) yoki Google Disk papka. Birinchi commit bugun: tarix "sprintning birinchi kunidan" ko'rinishi kerak. Shu repozitoriy (ochildi, 27-noyabr)
+- [x] Hujjat shablonlari: `hujjatlar/build.py` (kanvas, pasport, jurnal → A4 PDF)
+- [x] Mikrofon va kamera
 - [ ] Intervyu uchun tanishlar ro'yxati: har yo'nalishdan 3–4 kishi (talaba, shifokor/hamshira, mahalla faoli, kafe/do'kon egasi, fermer/bozor sotuvchisi). Har biriga: telefon, nazorat qo'ng'irog'iga rozimi
 - [ ] Har a'zo 1 kunlik vaqtini aytadi (dars, ish)
 
