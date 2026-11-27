@@ -249,8 +249,9 @@ if __name__ == "__main__":
     args = sys.argv[1:]
     blank = "shablon" in args
     want = [a for a in args if a in ("kanvas", "pasport", "jurnal")] or ["kanvas", "pasport", "jurnal"]
-    j = {} if blank else load("jamoa", "jamoa")
-    jn = j.get("jamoa") or "Jamoa"
+    j = load("jamoa", "jamoa")
+    # fayl nomi uchun: "O'zMU jamoasi" -> "OzMU_jamoasi"
+    jn = re.sub(r"[^A-Za-z0-9_-]", "", (j.get("jamoa") or "Jamoa").replace(" ", "_")) or "Jamoa"
     sfx = "_shablon" if blank else ""
     if "kanvas" in want:
         render("kanvas", kanvas({} if blank else load("kanvas"), j), f"Kanvas_{jn}_OzMU{sfx}")
