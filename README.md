@@ -11,7 +11,8 @@ Bu yerda sprintning birinchi kunidan (27-noyabr 2026) boshlab ish tarixi saqlana
 
 ## Tuzilma
 ```
-docs/       reja, intervyu qo'llanmasi, video ssenariysi
+docs/       reja, intervyu qo'llanmasi, B variant
+video/      video qarori, ssenariy, tasvirga olish cheklisti
 hujjatlar/  kanvas, MVP pasporti, jurnal: matn -> A4 PDF (build.py)
 mvp/        MVP-layt (kod yoki havola)
 ```
