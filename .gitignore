@@ -1,0 +1,11 @@
+# Intervyu jurnali va suhbatdosh kontaktlari ommaga chiqmaydi
+intervyu/
+*jurnal*
+*Jurnal*
+
+# Tizim va muhit
+.env
+__pycache__/
+node_modules/
+.DS_Store
+*.mp4
