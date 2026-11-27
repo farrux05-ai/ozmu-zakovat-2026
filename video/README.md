@@ -5,15 +5,17 @@
 |---|---|
 | Format | **16:9, 1920×1080, 30 fps**. Hakamlar noutbukda ko'radi |
 | Davomiyligi | **3:00** (ruxsat 2:45–3:15) |
-| Uslub | **"Daftar"**: katakli varaq, ko'k ruchka, qizil va yashil belgilar, sariq marker. Jamoa 26-noyabrda tanlagan, 63 s haqiqiy keysda sinalgan |
-| Kadr | Spiker **chapda (40%)**, o'ngda daftar varag'i, unda bir vaqtda **bitta g'oya** |
+| Uslub | **Gibrid, "tun" skin** (jamoa 27-noyabrda tanladi: qora fonda yozuvlar diqqatni bir joyga yig'adi). Qora fon, oq qo'lyozma chiziqlar, bitta oltin urg'u. **Hook va yakun: siluet animatsiya** (8–10 s), **o'rta qism: daftar bloklari** (mexanizm, raqam, MVP). Namuna: tayyorgarlik repo'sida `daftar-kit/ferma-16x9-v1.mp4`, kod `daftar-kit/ferma/` |
+| O'qilish tuzatishlari | Namunadagi kichik yozuvlar kattalashtiriladi: varaqdagi matn **≥ 44 px**, pastki izoh **≥ 34 px**, oq chiziq qalinroq; raqamlar oltin rangda eng katta element |
+| Kadr | Spiker **chapda (40%)**, o'ngda varaq, unda bir vaqtda **bitta g'oya**. Siluet hookda ham spiker ovozi eshitiladi va hook tugashi bilan spiker katta panelda chiqadi (jamoa kadrda bo'lishi shart) |
+| Zaxira | Siluet sahnasi ulgurmasa: o'sha "tun" skin'da faqat daftar bloklari (siluetsiz) |
 | Spikerlar | **3 kishi, har biri o'z bloklarida** (qoida: ko'pchilik kadrda, bir necha kishi gapiradi) |
 | Ovoz | Faqat jamoaning **haqiqiy ovozi**. SI-avatar va sintez ovoz yo'q. Musiqa va SFX o'zimiz sintez qilgan |
 | MVP | 1:25–2:10 blokida **ekran yozuvi** varaqdagi telefon yoki noutbuk ramkasi ichida (fokus rejimi) |
 | Subtitr | Faqat kalit iboralar, daqiqasiga 3–5 ta |
 | Raqamlar | Har raqam yonida `MANBA: ...`. Manbasiz raqam ekranga chiqmaydi |
 
-Nega shunday: varaq uslubi "talabalar o'zi tushuntiryapti" hissini beradi, slayd o'qishga o'xshamaydi (ekrandan o'qish ballni tushiradi). Spiker kadrda turadi, ya'ni "Video va jamoa" mezoni (15 ball) bajariladi.
+Nega shunday: qora fonda bitta g'oya yoziladi, diqqat chalg'imaydi; siluet hook esda qoladi; qo'lyozma uslub slayd o'qishga o'xshamaydi. Spiker kadrda turadi, ya'ni "Video va jamoa" mezoni (15 ball) bajariladi. Xavf: qora fonda mayda yozuv o'qilmaydi, shuning uchun o'lcham qoidalari qat'iy.
 
 ## Ish tartibi
 1. **Ssenariy** (`ssenariy.md`): 6 blok, har blokda kim gapiradi, 2–4 ta tezis, varaqda nima chiqadi. Kanvas tayyor bo'lgach yoziladi, raqamlar kanvasdagi bilan bir xil.
@@ -43,6 +45,6 @@ Nega shunday: varaq uslubi "talabalar o'zi tushuntiryapti" hissini beradi, slayd
 | 11:00–12:00 | Ssenariy yakuni, bir marta ovoz chiqarib o'qish, vaqtni o'lchash |
 | 12:00–14:00 | Tasvirga olish (6 blok × 2–3 dubl) + MVP ekran yozuvi |
 | 14:00–15:00 | Dubllarni tanlash, transkripsiya |
-| 15:00–19:00 | Animatsiya va render (cloud) |
+| 15:00–19:00 | Animatsiya va render (cloud): avval daftar bloklari, keyin siluet hook va yakun |
 | 19:00–20:00 | Tekshiruv, tuzatish, YouTube'ga yuklash |
 | 20:00 | Havola tayyor. Zaxira: animatsiyasiz oddiy montaj (spiker + MVP ekran yozuvi + raqam kartochkalari) |
