@@ -51,6 +51,29 @@ Taqlid qilinadigan qism: olib ketish logistikasi va lichinka fermasi (fizik qism
 - Fermer: lichinka uni yoki tirik lichinka uchun to'laydi (soya shroti o'rnini qisman bosadi).
 - Qo'shimcha: lichinka qoldig'i (frass) o'g'it sifatida sotiladi.
 
+## Platforma modeli (28-noyabr, jamoa qarori: o'zimiz yetishtirmaymiz, ikki tomonni bog'laydigan ilova)
+### Chet el patternlari
+| Pattern | Misol | Bizga saboq |
+|---|---|---|
+| Oziq-ovqat manbalari ↔ hasharot fermalari B2B bozori (sotish yoki tekin berish) | Insectflux (global platforma) | aynan bizning model; O'zbekistonda topilmadi |
+| Xaritada chiqindi beruvchi restoranlar, fermer o'zi muntazam olib ketishni belgilaydi | The Food Waste Marketplace, ForkToFarm, ShareWaste (Avstraliya) | platforma logistika qilmaydi, faqat moslashtiradi va jadval tuzadi: arzon va tez |
+| Ortiqcha mahsulotni B2B yo'naltirish dasturi | Spoiler Alert (AQSh) | restoranga hisobot va hujjat qiymati |
+| Mehmonxonada joyida qurilma (hardware) | Goterra (Avstraliya), 2025-yilda kreditorlar qarori bilan tugatilgan | qimmat uskunali model xavfli: biz uskuna sotmaymiz |
+| Chiqindi oluvchiga chiqindi beruvchi to'laydi (gate fee) yoki daromad mahsulotdan | sanoat sharhlari | bizda: restoranga tekin, ferma platformaga to'laydi |
+| Kichik BSF fermalari doimiy, katta va sifatli xom ashyo bo'lmagani uchun yopiladi | Flybox sharhi | **platformaning asosiy qiymati: fermaga barqaror, saralangan xom ashyo** |
+Manbalar: https://www.petfoodindustry.com/insect-based-cat-and-dog-food/news/15754667/insectflux-marketplace-connects-agrifood-with-insect-protein · https://www.thefoodwastemarketplace.com/ · https://devpost.com/software/forktofarm · https://earth911.com/eco-tech/apps-to-rescue-food-from-waste/ · https://flybox.bio/how-to-start-insect-farm-right-way-bsf-startup-mistakes · https://interestingengineering.com/science/companies-making-money-from-fighting-food-waste
+
+### Bizning model
+**Restoran va to'yxona** ilovada saralangan oshxona chiqindisini e'lon qiladi (kg, turi, jadval). **Lichinka fermasi** yaqin manbalarni tanlab, muntazam olib ketishni belgilaydi.
+| Tomon | Nima oladi |
+|---|---|
+| Restoran, to'yxona | tekin muntazam olib ketish, hovli toza (hid, pashsha yo'q), m³ bo'yicha chiqindi to'lovi kamayadi (shartnomasi bo'lsa), oylik "qancha kg qayta ishlandi" hisoboti |
+| Lichinka fermasi | yaqin, saralangan, oldindan ma'lum hajmdagi xom ashyo (kepak yoki don sotib olish o'rniga) |
+| Agrobank (ixtiyoriy) | platformadagi xom ashyo kelishuvlari fermaning kredit arizasida "xom ashyo kafolati" bo'ladi |
+**Daromad (gipoteza):** ferma har tonna kafolatlangan xom ashyo uchun platformaga to'laydi (komissiya yoki obuna). Restoran uchun bepul.
+**MVP funksiyalari:** e'lon berish (rasm + kg) → SI rasmdan aralashmani tekshiradi (plastik, suyak, folga) → xaritada yaqin fermalarga moslashtirish → olib ketish jadvali → oylik hisobot. To'yxonalar uchun: to'y jadvalidan chiqindi hajmini oldindan bashorat qilish.
+**Asosiy noma'lum:** O'zbekistonda lichinka fermalari soni kam (qidiruvda bitta tuxum sotuvchi topildi). Talab tomoni intervyuda tekshiriladi.
+
 ## Substrat: restoran chiqindisi, go'ng yoki ichak? (28-noyabr, ilmiy manbalar)
 | Substrat | O'sish va konversiya | Ozuqa uchun ruxsat/xavf |
 |---|---|---|
