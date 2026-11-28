@@ -72,6 +72,12 @@ Manbalar: https://www.petfoodindustry.com/insect-based-cat-and-dog-food/news/157
 | Agrobank (ixtiyoriy) | platformadagi xom ashyo kelishuvlari fermaning kredit arizasida "xom ashyo kafolati" bo'ladi |
 **Daromad (gipoteza):** ferma har tonna kafolatlangan xom ashyo uchun platformaga to'laydi (komissiya yoki obuna). Restoran uchun bepul.
 **MVP funksiyalari:** e'lon berish (rasm + kg) → SI rasmdan aralashmani tekshiradi (plastik, suyak, folga) → xaritada yaqin fermalarga moslashtirish → olib ketish jadvali → oylik hisobot. To'yxonalar uchun: to'y jadvalidan chiqindi hajmini oldindan bashorat qilish.
+**Tanlangan model (28-noyabr):** "aktivsiz bozor" (Insectflux + ForkToFarm). Platforma logistika va uskunaga egalik qilmaydi. **Restoran uchun bepul, ferma har olingan tonna uchun komissiya to'laydi** (miqdori intervyudan keyin).
+**Sifat nazorati (rasm emas, jarayon):** odatdagi chiqindi idishi ~1,5 m, rasmda faqat ust qatlam ko'rinadi, ichidagisini aniqlab bo'lmaydi. Shuning uchun:
+1. Restoranga ovqat tayyorlash joyiga alohida kichik idish (20–30 l, yorliqli: "faqat po'st va non") beriladi; katta umumiy idishga aralashtirilmaydi.
+2. Ferma har olib ketishni qabul qilganda baholaydi (toza / aralash, kg) → restoran reytingi; 2 marta aralash bo'lsa, ogohlantirish, keyin chiqariladi.
+3. Hajm = idishlar soni × standart hajm yoki ferma tarozisi.
+4. SI roli: to'liqlik va ko'rinadigan plastikni taxminiy tekshirish (yordamchi), asosan **hajm bashorati** (kun, to'y jadvali) va eng yaqin fermaga moslashtirish.
 **Asosiy noma'lum:** O'zbekistonda lichinka fermalari soni kam (qidiruvda bitta tuxum sotuvchi topildi). Talab tomoni intervyuda tekshiriladi.
 
 ## Substrat: restoran chiqindisi, go'ng yoki ichak? (28-noyabr, ilmiy manbalar)
