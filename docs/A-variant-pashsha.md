@@ -78,6 +78,12 @@ Manbalar: https://www.petfoodindustry.com/insect-based-cat-and-dog-food/news/157
 2. Ferma har olib ketishni qabul qilganda baholaydi (toza / aralash, kg) → restoran reytingi; 2 marta aralash bo'lsa, ogohlantirish, keyin chiqariladi.
 3. Hajm = idishlar soni × standart hajm yoki ferma tarozisi.
 4. SI roli: to'liqlik va ko'rinadigan plastikni taxminiy tekshirish (yordamchi), asosan **hajm bashorati** (kun, to'y jadvali) va eng yaqin fermaga moslashtirish.
+**To'yxona/restoranning pul foydasi (28-noyabr tekshiruvi):**
+- Yuridik shaxslar uchun tarif **hajm bo'yicha (so'm/m³)**, maydon yoki o'rindiq bo'yicha emas (Toshkent: 89 977,57, taklif 119 969,79 so'm/m³).
+- **2026-yil 1-yanvardan to'lov faqat haqiqatda ko'rsatilgan xizmat uchun** ("Toza makon" billing, onlayn) — https://www.gazeta.uz/oz/2025/11/07/chiqindi/ · https://www.spot.uz/oz/2025/11/07/pay-for-waste
+- Demak, oziq-ovqat chiqindisi platforma orqali ketsa, operator olib ketadigan hajm va to'lov kamayadi. Formula: **tejov = oylik m³ × oziq-ovqat ulushi × tarif**. Misol (FARAZ, intervyuda almashtiriladi): 10 m³/oy × 40% × 119 970 ≈ 480 ming so'm/oy.
+- Intervyuda tekshiriladi: shartnoma haqiqiy olib ketish bo'yicha hisoblanadimi yoki qat'iy oylik summami? Oziq-ovqat chiqindisi hajmning qancha qismi? **Hozir qoldiqni chorvadorlar tekin olib ketadimi** (bo'lsa, bu bizning asosiy raqobatchimiz)?
+- Puldan tashqari: oziq-ovqat chiqindisi eng og'ir va nam qism, yozda hid, pashsha, kalamush, SES tekshiruvi.
 **Asosiy noma'lum:** O'zbekistonda lichinka fermalari soni kam (qidiruvda bitta tuxum sotuvchi topildi). Talab tomoni intervyuda tekshiriladi.
 
 ## Substrat: restoran chiqindisi, go'ng yoki ichak? (28-noyabr, ilmiy manbalar)
