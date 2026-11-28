@@ -1,6 +1,6 @@
 # Saralash bosqichi: ish rejasi (27–30-noyabr 2026)
 
-**Muddat:** fayllar **29-noyabr 23:59** gacha tayyor (shaklda "30-noyabr 00:00 dan keyin tahrirlamang"). Shakl 30-noyabr 23:59 da yopiladi.
+**Muddat:** **30-noyabr 23:59** (admin 28-noyabrda tasdiqladi). Ish rejasi bo'yicha fayllar 29-noyabr kechgacha tayyor, 30-noyabr zaxira. Shakl 30-noyabr 23:59 da yopiladi.
 Manba: tashkilotchining saralash qoidalari va 4 ta shabloni.
 
 ## Rollar (3 kishi)
@@ -39,7 +39,7 @@ Intervyuda 2 kishi: biri so'raydi, biri so'zma-so'z yozadi.
 - Tush: video ssenariysi (6 blok, 3:00) → tasvirga olish (jamoaning ko'pchiligi kadrda, bir necha kishi gapiradi, MVP ekran yozuvi). **AI ovoz/avatar yo'q**
 - Kechqurun: montaj, 2:45–3:15 tekshiruvi, YouTube (havola orqali) yoki Disk
 - **22:00 gacha:** kanvas PDF, jurnal, pasport fayllari final; havolalar inkognitoda tekshiriladi
-- **23:00:** sardor shaklni to'ldiradi va yuboradi ("Yechim bir jumlada" ≤200 belgi tayyor). 00:00 dan keyin hech narsa tahrirlanmaydi
+- **23:00:** sardor shaklni to'ldiradi va yuboradi ("Yechim bir jumlada" ≤200 belgi tayyor). 30-noyabr 23:59 dan keyin hech narsa tahrirlanmaydi
 
 ## 30-noyabr: zaxira
 Faqat shakldagi xatoni "Javobni tahrirlash" bilan tuzatish. Fayllarga tegilmaydi.
@@ -50,5 +50,5 @@ Faqat shakldagi xatoni "Javobni tahrirlash" bilan tuzatish. Fayllarga tegilmaydi
 - Videoda haqiqiy yuz va ovoz
 - Mavjud startap matni/kodi ko'chirilmagan
 
-## Agar vazifa e'lon qilinmasa
+## Muammo tanlash (admin, 28-noyabr: alohida vazifa yo'q, muammoni o'zimiz topamiz)
 Qoidalar 3-band: jamoa yo'nalish doirasida **o'z g'oyasini** ishlab chiqadi. Zaxira g'oya tanlangan (2-yo'nalish).

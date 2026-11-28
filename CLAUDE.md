@@ -19,4 +19,4 @@ Bu **topshiriladigan** ish repozitoriysi (shaklning "Repozitoriy yoki ishchi pap
 
 ## Ish tartibi
 - Reja: `docs/REJA.md`. Hujjatlar: `hujjatlar/` (`python3 build.py`).
-- Har kungi ishni commit qil (ish tarixi baholanadi). **30-noyabr 00:00 dan keyin hech narsa commit qilinmaydi.**
+- Har kungi ishni commit qil (ish tarixi baholanadi). **30-noyabr 23:59 dan keyin hech narsa commit qilinmaydi** (admin tasdiqladi).
