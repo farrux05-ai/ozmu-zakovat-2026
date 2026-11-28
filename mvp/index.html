@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="uz">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Qoldiq · oshxona chiqindisi → lichinka fermasi</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="https://telegram.org/js/telegram-web-app.js"></script>
+<style>
+  :root { --bg:#F6F7F4; --card:#fff; --ink:#1D2A22; --mute:#6B776F; --line:#E2E6E0;
+          --res:#E07A2E; --farm:#2F8F5B; --acc:#2F8F5B; --warn:#C7442F; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  html, body { height:100%; background:var(--bg); color:var(--ink);
+    font:15px/1.4 -apple-system, "Segoe UI", Roboto, Arial, sans-serif; }
+  #app { max-width:520px; margin:0 auto; height:100%; display:flex; flex-direction:column; }
+  header { display:flex; align-items:center; gap:10px; padding:10px 14px; background:var(--card); border-bottom:1px solid var(--line); }
+  header .logo { width:34px; height:34px; border-radius:10px; background:var(--acc); color:#fff; display:grid; place-items:center; font-weight:800; }
+  header h1 { font-size:17px; line-height:1.1; } header p { font-size:12px; color:var(--mute); }
+  .demo { margin-left:auto; font-size:11px; color:var(--warn); border:1px solid var(--warn); border-radius:20px; padding:2px 8px; white-space:nowrap; }
+  #map { height:40vh; min-height:240px; flex:none; }
+  .tabs { display:flex; background:var(--card); border-bottom:1px solid var(--line); }
+  .tabs button { flex:1; padding:12px 6px; border:0; background:none; font-weight:700; color:var(--mute); font-size:15px; border-bottom:3px solid transparent; }
+  .tabs button.on { color:var(--ink); border-color:var(--acc); }
+  main { flex:1; overflow:auto; padding:12px 12px 90px; }
+  .card { background:var(--card); border:1px solid var(--line); border-radius:14px; padding:12px; margin-bottom:10px; }
+  .card h2 { font-size:15px; margin-bottom:8px; }
+  label { display:block; font-size:13px; color:var(--mute); margin:8px 0 4px; }
+  select, input[type=number], input[type=text] { width:100%; padding:10px; border:1px solid var(--line); border-radius:10px; font-size:15px; background:#fff; }
+  .row { display:flex; gap:8px; } .row > * { flex:1; }
+  .chips { display:flex; flex-wrap:wrap; gap:6px; }
+  .chip { border:1px solid var(--line); border-radius:20px; padding:6px 10px; font-size:13px; background:#fff; }
+  .chip.on { background:#E6F3EB; border-color:var(--acc); color:var(--acc); font-weight:600; }
+  .btn { width:100%; padding:12px; border:0; border-radius:12px; background:var(--acc); color:#fff; font-weight:700; font-size:15px; margin-top:10px; }
+  .btn.ghost { background:#fff; color:var(--acc); border:1px solid var(--acc); }
+  .btn.small { width:auto; padding:8px 12px; font-size:13px; margin:0; }
+  .kpi { display:flex; gap:8px; } .kpi div { flex:1; background:#F1F5F0; border-radius:12px; padding:10px; }
+  .kpi b { display:block; font-size:20px; } .kpi span { font-size:12px; color:var(--mute); }
+  .offer { display:flex; gap:10px; align-items:flex-start; }
+  .offer .dot { width:10px; height:10px; border-radius:50%; background:var(--res); margin-top:6px; flex:none; }
+  .offer .t { flex:1; } .offer .t b { display:block; } .offer .t small { color:var(--mute); }
+  .tag { display:inline-block; font-size:11px; padding:1px 7px; border-radius:10px; background:#F1F5F0; color:var(--mute); margin-right:4px; }
+  .tag.ok { background:#E6F3EB; color:var(--acc); } .tag.bad { background:#FBEAE7; color:var(--warn); }
+  .note { font-size:12px; color:var(--mute); margin-top:6px; }
+  .hide { display:none; }
+  .toast { position:fixed; left:50%; bottom:24px; transform:translateX(-50%); background:var(--ink); color:#fff; padding:10px 16px; border-radius:12px; font-size:14px; opacity:0; transition:.25s; pointer-events:none; }
+  .toast.on { opacity:1; }
+</style>
+</head>
+<body>
+<div id="app">
+  <header>
+    <div class="logo">Q</div>
+    <div><h1>Qoldiq</h1><p>oshxona chiqindisi → lichinka fermasi</p></div>
+    <span class="demo">namuna ma'lumot</span>
+  </header>
+  <div id="map"></div>
+  <div class="tabs">
+    <button id="tabR" class="on" onclick="tab('r')">🍽 Restoran</button>
+    <button id="tabF" onclick="tab('f')">🌱 Ferma</button>
+  </div>
+  <main>
+    <!-- RESTORAN -->
+    <section id="R">
+      <div class="card">
+        <h2>Bugungi chiqindini e'lon qilish</h2>
+        <label>Restoran</label>
+        <select id="resSel" onchange="pickRes()"></select>
+        <div class="row">
+          <div><label>Chelaklar soni (20 l)</label><input id="buckets" type="number" min="1" value="3" oninput="calc()"></div>
+          <div><label>Olib ketish vaqti</label>
+            <select id="slot"><option>Bugun 16:00–18:00</option><option>Bugun 22:00–23:00</option><option>Ertaga 08:00–10:00</option></select></div>
+        </div>
+        <label>Nima bor (faqat ovqat tayyorlashdan oldingi chiqindi)</label>
+        <div class="chips" id="types"></div>
+        <label>Chelak rasmi (ixtiyoriy)</label>
+        <input id="photo" type="file" accept="image/*" capture="environment">
+        <p class="note">Faqat kichik "po'st va non" chelagi. Katta umumiy bochka qabul qilinmaydi: ichidagini ko'rib bo'lmaydi.</p>
+        <button class="btn" onclick="publish()">E'lon qilish</button>
+      </div>
+      <div class="card">
+        <h2>Bu oy</h2>
+        <div class="kpi">
+          <div><b id="kKg">0</b><span>kg qayta ishlandi</span></div>
+          <div><b id="kSave">0</b><span>so'm tejaldi (taxmin)</span></div>
+          <div><b id="kRate">–</b><span>sifat reytingi</span></div>
+        </div>
+        <p class="note" id="formula"></p>
+      </div>
+      <div class="card"><h2>Mening e'lonlarim</h2><div id="myOffers"></div></div>
+    </section>
+
+    <!-- FERMA -->
+    <section id="F" class="hide">
+      <div class="card">
+        <h2>Lichinka fermasi</h2>
+        <label>Ferma</label>
+        <select id="farmSel" onchange="renderFarm()"></select>
+        <div class="kpi" style="margin-top:10px">
+          <div><b id="fAvail">0</b><span>kg mavjud, 15 km ichida</span></div>
+          <div><b id="fTaken">0</b><span>kg olindi (bu oy)</span></div>
+        </div>
+      </div>
+      <div class="card"><h2>Yaqin e'lonlar</h2><div id="offers"></div></div>
+    </section>
+  </main>
+</div>
+<div class="toast" id="toast"></div>
+
+<script>
+// ---------- sozlamalar (manbali yoki aniq belgilangan) ----------
+const TARIF = 119969.79;          // so'm/m³, Toshkent yuridik shaxslar, taklif 27.11.2026 (gazeta.uz)
+const BUCKET_L = 20;              // chelak hajmi, litr
+const KG_PER_BUCKET = 12;         // FARAZ: ~0,6 kg/l; intervyu va tarozi bilan almashtiriladi
+const TYPES = ["Sabzavot po'sti", "Meva po'sti", "Non", "Guruch/makaron (pishmagan)"];
+
+// ---------- NAMUNA ma'lumot (haqiqiy korxonalar emas) ----------
+const RES = [
+  { id:"r1", name:"Namuna restoran 1 (Chilonzor)", lat:41.2856, lng:69.2034 },
+  { id:"r2", name:"Namuna to'yxona 2 (Yunusobod)", lat:41.3647, lng:69.2862 },
+  { id:"r3", name:"Namuna oshxona 3 (Mirzo Ulug'bek)", lat:41.3272, lng:69.3348 },
+  { id:"r4", name:"Namuna kafe 4 (Sergeli)", lat:41.2260, lng:69.2210 },
+];
+const FARMS = [
+  { id:"f1", name:"Namuna ferma A (Zangiota)", lat:41.2060, lng:69.1480 },
+  { id:"f2", name:"Namuna ferma B (Qibray)", lat:41.3880, lng:69.4650 },
+];
+let S = JSON.parse(localStorage.getItem("qoldiq") || "null") || {
+  offers:[
+    { id:1, res:"r2", buckets:6, types:["Sabzavot po'sti","Non"], slot:"Bugun 22:00–23:00", status:"ochiq" },
+    { id:2, res:"r4", buckets:2, types:["Meva po'sti"], slot:"Ertaga 08:00–10:00", status:"ochiq" },
+  ],
+  rated:{ r1:[], r2:["toza","toza"], r3:[], r4:["toza","aralash"] }, nextId:3
+};
+const save = () => localStorage.setItem("qoldiq", JSON.stringify(S));
+
+// ---------- Telegram Mini App ----------
+const tg = window.Telegram && window.Telegram.WebApp;
+if (tg && tg.initData !== undefined) { tg.ready(); tg.expand(); }
+
+// ---------- xarita ----------
+const map = L.map("map", { zoomControl:false }).setView([41.30, 69.27], 10);
+L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+  { maxZoom:18, attribution:"© OpenStreetMap" }).addTo(map);
+const icon = (c, s) => L.divIcon({ className:"", iconSize:[s,s],
+  html:`<div style="width:${s}px;height:${s}px;border-radius:50%;background:${c};border:3px solid #fff;box-shadow:0 1px 4px rgba(0,0,0,.35)"></div>` });
+const layer = L.layerGroup().addTo(map);
+
+function km(a, b) {                       // haversine
+  const R = 6371, r = x => x * Math.PI / 180;
+  const d1 = r(b.lat - a.lat), d2 = r(b.lng - a.lng);
+  const h = Math.sin(d1/2)**2 + Math.cos(r(a.lat)) * Math.cos(r(b.lat)) * Math.sin(d2/2)**2;
+  return 2 * R * Math.asin(Math.sqrt(h));
+}
+const resById = id => RES.find(r => r.id === id);
+const farmById = id => FARMS.find(f => f.id === id);
+const fmt = n => Math.round(n).toLocaleString("ru-RU").replace(/,/g, " ");
+function rating(id) {
+  const r = S.rated[id] || []; if (!r.length) return "–";
+  return Math.round(100 * r.filter(x => x === "toza").length / r.length) + "%";
+}
+
+function drawMap(focus) {
+  layer.clearLayers();
+  FARMS.forEach(f => L.marker([f.lat, f.lng], { icon:icon("var(--farm)", 22) })
+    .bindPopup(`<b>${f.name}</b><br>lichinka fermasi`).addTo(layer));
+  RES.forEach(r => {
+    const open = S.offers.filter(o => o.res === r.id && o.status === "ochiq");
+    const kg = open.reduce((s, o) => s + o.buckets * KG_PER_BUCKET, 0);
+    L.marker([r.lat, r.lng], { icon:icon(open.length ? "var(--res)" : "#B9C1BB", open.length ? 20 : 14) })
+      .bindPopup(`<b>${r.name}</b><br>${open.length ? "≈ " + kg + " kg tayyor" : "hozir e'lon yo'q"}<br>reyting: ${rating(r.id)}`)
+      .addTo(layer);
+  });
+  if (focus) map.setView([focus.lat, focus.lng], 11);
+}
+
+// ---------- restoran ----------
+function tab(t) {
+  document.getElementById("R").classList.toggle("hide", t !== "r");
+  document.getElementById("F").classList.toggle("hide", t !== "f");
+  document.getElementById("tabR").classList.toggle("on", t === "r");
+  document.getElementById("tabF").classList.toggle("on", t === "f");
+  t === "r" ? pickRes() : renderFarm();
+}
+const resSel = document.getElementById("resSel"), farmSel = document.getElementById("farmSel");
+RES.forEach(r => resSel.add(new Option(r.name, r.id)));
+FARMS.forEach(f => farmSel.add(new Option(f.name, f.id)));
+const typesBox = document.getElementById("types");
+TYPES.forEach((t, i) => {
+  const b = document.createElement("button"); b.className = "chip" + (i < 2 ? " on" : ""); b.textContent = t;
+  b.onclick = () => b.classList.toggle("on"); typesBox.appendChild(b);
+});
+
+function calc() {
+  const id = resSel.value;
+  const done = S.offers.filter(o => o.res === id && o.status === "olindi");
+  const kg = done.reduce((s, o) => s + o.buckets * KG_PER_BUCKET, 0);
+  const m3 = done.reduce((s, o) => s + o.buckets * BUCKET_L / 1000, 0);
+  document.getElementById("kKg").textContent = fmt(kg);
+  document.getElementById("kSave").textContent = fmt(m3 * TARIF);
+  document.getElementById("kRate").textContent = rating(id);
+  document.getElementById("formula").textContent =
+    `Tejov = olib ketilgan hajm (${m3.toFixed(2)} m³) × tarif ${fmt(TARIF)} so'm/m³. Tarif: Toshkent, yuridik shaxslar, 27.11.2026 taklifi. kg taxminiy (1 chelak ≈ ${KG_PER_BUCKET} kg, faraz).`;
+}
+function pickRes() {
+  const r = resById(resSel.value); drawMap(r); calc();
+  const mine = S.offers.filter(o => o.res === r.id).slice().reverse();
+  document.getElementById("myOffers").innerHTML = mine.length ? mine.map(o => `
+    <div class="offer" style="margin-bottom:8px"><span class="dot" style="background:${o.status === "ochiq" ? "var(--res)" : "var(--farm)"}"></span>
+      <div class="t"><b>${o.buckets} chelak · ≈ ${o.buckets * KG_PER_BUCKET} kg</b>
+      <small>${o.slot} · ${o.status === "ochiq" ? "ferma kutilmoqda" : o.status === "band" ? farmById(o.farm).name + " olib ketadi" : "olib ketildi ✓"}</small></div></div>`).join("")
+    : `<p class="note">Hali e'lon yo'q.</p>`;
+}
+function publish() {
+  const r = resById(resSel.value);
+  const types = [...typesBox.querySelectorAll(".chip.on")].map(b => b.textContent);
+  const buckets = Math.max(1, +document.getElementById("buckets").value || 1);
+  if (!types.length) return toast("Chiqindi turini tanlang");
+  S.offers.push({ id:S.nextId++, res:r.id, buckets, types, slot:document.getElementById("slot").value, status:"ochiq" });
+  save();
+  const near = FARMS.map(f => ({ f, d:km(r, f) })).sort((a, b) => a.d - b.d)[0];
+  toast(`E'lon joylandi. Eng yaqin ferma: ${near.f.name.split(" (")[0]}, ${near.d.toFixed(1)} km`);
+  if (tg && tg.HapticFeedback) tg.HapticFeedback.notificationOccurred("success");
+  pickRes();
+}
+
+// ---------- ferma ----------
+function renderFarm() {
+  const f = farmById(farmSel.value); drawMap(f);
+  const list = S.offers.filter(o => o.status !== "olindi")
+    .map(o => ({ o, r:resById(o.res), d:km(f, resById(o.res)) })).sort((a, b) => a.d - b.d);
+  document.getElementById("fAvail").textContent =
+    fmt(list.filter(x => x.d <= 15 && x.o.status === "ochiq").reduce((s, x) => s + x.o.buckets * KG_PER_BUCKET, 0));
+  document.getElementById("fTaken").textContent =
+    fmt(S.offers.filter(o => o.farm === f.id && o.status === "olindi").reduce((s, o) => s + o.buckets * KG_PER_BUCKET, 0));
+  document.getElementById("offers").innerHTML = list.length ? list.map(({ o, r, d }) => `
+    <div class="offer" style="margin-bottom:12px"><span class="dot"></span>
+      <div class="t"><b>${r.name}</b>
+        <small>${d.toFixed(1)} km · ${o.buckets} chelak ≈ ${o.buckets * KG_PER_BUCKET} kg · ${o.slot}</small><br>
+        ${o.types.map(t => `<span class="tag">${t}</span>`).join("")}<span class="tag ${rating(r.id) === "100%" ? "ok" : ""}">reyting ${rating(r.id)}</span>
+        <div class="row" style="margin-top:8px">${
+          o.status === "ochiq" ? `<button class="btn small" onclick="take(${o.id})">Olib ketaman</button>`
+          : o.farm === f.id ? `<button class="btn small" onclick="rate(${o.id},'toza')">Qabul: toza</button>
+                               <button class="btn small ghost" style="color:var(--warn);border-color:var(--warn)" onclick="rate(${o.id},'aralash')">Aralash</button>`
+          : `<small>boshqa ferma oldi</small>`}</div>
+      </div></div>`).join("") : `<p class="note">Hozir ochiq e'lon yo'q.</p>`;
+}
+function take(id) {
+  const o = S.offers.find(x => x.id === id); o.status = "band"; o.farm = farmSel.value; save();
+  toast("Olib ketish belgilandi. Restoranga xabar yuborildi."); renderFarm();
+}
+function rate(id, q) {
+  const o = S.offers.find(x => x.id === id); o.status = "olindi"; (S.rated[o.res] = S.rated[o.res] || []).push(q); save();
+  toast(q === "toza" ? "Qabul qilindi: toza ✓" : "Aralash deb belgilandi. Restoranga ogohlantirish."); renderFarm();
+}
+
+function toast(t) { const e = document.getElementById("toast"); e.textContent = t; e.classList.add("on"); setTimeout(() => e.classList.remove("on"), 2600); }
+pickRes();
+window.addEventListener("load", () => map.invalidateSize());
+window.addEventListener("resize", () => map.invalidateSize());
+</script>
+</body>
+</html>
