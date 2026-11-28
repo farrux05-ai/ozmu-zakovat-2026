@@ -51,6 +51,16 @@ Taqlid qilinadigan qism: olib ketish logistikasi va lichinka fermasi (fizik qism
 - Fermer: lichinka uni yoki tirik lichinka uchun to'laydi (soya shroti o'rnini qisman bosadi).
 - Qo'shimcha: lichinka qoldig'i (frass) o'g'it sifatida sotiladi.
 
+## Substrat: restoran chiqindisi, go'ng yoki ichak? (28-noyabr, ilmiy manbalar)
+| Substrat | O'sish va konversiya | Ozuqa uchun ruxsat/xavf |
+|---|---|---|
+| **Ovqat chiqindisi** (restoran, fast-food) | eng yaxshilaridan: bir tadqiqotda o'sish, chiqindi kamayishi va konversiya eng yuqori, quruq modda konversiyasi 25,2% | tayyorlashdan oldingi (sabzavot, non) xavfsizroq; likopcha qoldig'i EI'da taqiqlangan |
+| **Non chiqindisi** | ITMO: biomassa o'sishi uchun tavsiya etilgan | xavfsiz; Toshkentda kuniga ~3–3,5 t non va oziq-ovqat chiqindiga ketadi (shahar agentligi, gazeta.uz, 15.01.2026) |
+| **Go'ng** | turiga bog'liq: cho'chqa go'ngi yomon, sigir go'ngi ozuqa samaradorligi yaxshi, lekin biomassa kam; odatda ovqat chiqindisi bilan aralashtirilganda yaxshilanadi | patogen xavfi; EI'da ozuqa hasharotlari uchun taqiqlangan; frass/o'g'it liniyasi uchun mos |
+| **So'yish chiqindisi (ichak)** | oqsilga boy lichinka beradi, lekin bitta tadqiqotda samaradorlik eng past guruhda; nam, hidli | hayvon qo'shimcha mahsuloti: veterinariya xavfi eng yuqori |
+Manbalar: https://pmc.ncbi.nlm.nih.gov/articles/PMC9968099/ · https://www.researchgate.net/publication/373033011 · https://kmu.itmo.ru/file/download/application/39424 · https://www.gazeta.uz/oz/2026/01/15/ood-sharing/
+**Xulosa:** asosiy substrat = restoran oshxonasining tayyorlashdan oldingi chiqindisi + non. Go'ng va ichak ozuqa liniyasiga olinmaydi. Mahalliy yetishtiruvchilar tajribasi intervyuda tekshiriladi (6-intervyu).
+
 ## Asosiy xavf (gipoteza)
 Lichinka oqsilini ozuqa sifatida sotishga ruxsat (veterinariya) va fermerning ishonchi. Yevropa Ittifoqida hasharotni restoran qoldig'ida boqib, chorva ozuqasiga ishlatish taqiqlangan (aniq qoida tekshiriladi). Shuning uchun boshlang'ich substrat: faqat **ovqat tayyorlashdan oldingi** oshxona chiqindisi (sabzavot, meva po'sti, non), likopchadan qolgan ovqat emas.
 Tekshirish (1 hafta, $500): 10 ta fermerga lichinka namunasi taklif, kamida 3 tasi buyurtma bersa, gipoteza tasdiqlanadi.
